@@ -1,9 +1,6 @@
 import { ArrowUpIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
-
-interface IChatInputProps {
-    onSendMessage: (message: string) => void;
-}
+import type { IChatInputProps } from "../../interfaces/IChatInputProps";
 
 export const ChatInput = ({ onSendMessage }: IChatInputProps) => {
     const [message, setMessage] = useState<string>("");
@@ -20,6 +17,7 @@ export const ChatInput = ({ onSendMessage }: IChatInputProps) => {
         <form className="w-[65%] p-4 bg-gray-900 border-t border-gray-700 flex flex-col items-center justify-center gap-2" onSubmit={handleSendText}>
             <div className="flex items-center w-full rounded-2xl bg-white/5 pl-3 outline-1 -outline-offset-1 outline-gray-600 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
                 <input
+                    autoComplete="off"
                     id="search"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}

@@ -1,9 +1,6 @@
-type MessageProps = {
-    role: "user" | "bot";
-    text: string;
-};
+import type { MessageType } from "../../types/MessageType"
 
-export const MessageItem = ({ role, text }: MessageProps) => {
+export const MessageItem = ({ role, text }: MessageType) => {
     return (
         <div className={`flex mb-2 ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
             <div
