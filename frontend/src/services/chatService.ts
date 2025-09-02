@@ -8,6 +8,6 @@ export const sendMessageToBot = async (message: string): Promise<IChatResponse> 
         const response = await axios.post(`${API_URL}/chat/`, { message });
         return response.data;
     } catch (error) {
-        return { message: "Parece que o chatbot está com problemas." };
+        return { message: "Parece que chegou ao fim a quantidade de requisições." };
     }
 }

@@ -4,7 +4,6 @@ import { MessageList } from "./MessageList"
 import type { MessageType } from "../../types/MessageType";
 import { sendMessageToBot } from "../../services/chatService";
 
-
 export const ChatWindow = () => {
     const [messages, setMessages] = useState<MessageType[]>([]);
 
