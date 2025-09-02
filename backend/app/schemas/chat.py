@@ -4,5 +4,4 @@ class ChatRequest (BaseModel):
     message: str
     
 class ChatResponse (BaseModel):
-    role: str
-    text: str
+    message: str

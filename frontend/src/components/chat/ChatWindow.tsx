@@ -1,18 +1,19 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ChatInput } from "./ChatInput"
 import { MessageList } from "./MessageList"
 import type { MessageType } from "../../types/MessageType";
+import { sendMessageToBot } from "../../services/chatService";
 
 
 export const ChatWindow = () => {
     const [messages, setMessages] = useState<MessageType[]>([]);
 
-    const handleSendMessage = (message: string) => {
-        setMessages((prev) => [...prev, { role: "user", text: message }]);
 
-        setTimeout(() => {
-            setMessages((prev) => [...prev, { role: "bot", text: 'Aopa, sou o bot' }]);
-        }, 5000);
+    const handleSendMessage = async (message: string) => {
+        setMessages((prev) => [...prev, { role: "user", text: message }]);
+        
+        const botResponse = await sendMessageToBot(message);
+        setMessages((prev) => [...prev, { role: "bot", text: botResponse.message }]);
     }
 
     return (

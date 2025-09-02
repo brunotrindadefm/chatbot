@@ -4,8 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Settings:
-    PROJECT_NAME: str = "Chatbot"
-    ENV: str = os.getenv("ENV", "development")
-    API_KEY: str = os.getenv("API_KEY", "fake-key")
+    API_KEY: str = os.getenv("API_KEY")
+    FRONTEND_ORIGINS: list[str] = os.getenv("FRONTEND_ORIGINS", "").split(",")
 
 settings = Settings()

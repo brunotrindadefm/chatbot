@@ -6,7 +6,11 @@ router = FastAPI().router
 
 @router.post("/", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
-    response = generate_bot_response(request.message)
-    if(isinstance(response, str)):
-        response = {"role": "bot", "text": response}
-    return response   
+    try:
+        response = generate_bot_response(request.message)
+        if isinstance(response, str):
+            response = {"message": response}
+        return response
+    except Exception as e:
+        print("endpoint error:", e)
+        raise e
