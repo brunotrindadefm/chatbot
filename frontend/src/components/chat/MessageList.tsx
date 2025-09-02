@@ -5,18 +5,10 @@ import { MessageItem } from "./MessageItem";
 
 
 export const MessageList = ({ messages }: IMessageListProps) => {
-    const messagesEndRef = useRef<HTMLDivElement>(null);
-
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    };
-
     useEffect(() => {
-        scrollToBottom();
-        console.log('rola pra baxo')
     }, [messages])
     return (
-        <div className={`${messages.length > 0 ? 'flex-1 w-[65%]' : ''} transition-all duration-300 ease-in-out overflow-y-auto p-4 mt-12`}>
+        <div className={`${messages.length > 0 ? 'flex-1 sm:w-[65%] w-full' : ''} transition-all duration-300 ease-in-out overflow-y-auto p-4 mt-12`}>
             {messages.length === 0 ? (
                 <h2 className="text-2xl font-medium text-white text-center">
                     E aí, como posso te ajudar hoje?

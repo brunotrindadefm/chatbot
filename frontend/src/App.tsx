@@ -1,4 +1,5 @@
 import { ChatWindow } from "./components/chat/ChatWindow"
+import "prismjs/themes/prism-tomorrow.css";
 
 function App() {
 
